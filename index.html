@@ -12,6 +12,7 @@
     --muted: #5b564d;
     --accent: #6b4f3b;
     --border: #e4ddd0;
+    --cream: #faf8f4;
   }
   * { box-sizing: border-box; }
   body {
@@ -53,12 +54,12 @@
     padding: 1.25rem 1.5rem;
     color: var(--muted);
   }
-  form.signup {
+  #signup form {
     display: flex;
     gap: 0.5rem;
     flex-wrap: wrap;
   }
-  form.signup input[type="email"] {
+  #signup input[type="email"] {
     flex: 1 1 240px;
     padding: 0.6rem 0.75rem;
     border: 1px solid var(--border);
@@ -66,7 +67,7 @@
     font-size: 1rem;
     font-family: system-ui, sans-serif;
   }
-  form.signup button {
+  #signup button {
     padding: 0.6rem 1.25rem;
     background: var(--accent);
     color: #fff;
@@ -76,7 +77,11 @@
     cursor: pointer;
     font-family: system-ui, sans-serif;
   }
-  form.signup button:hover { opacity: 0.9; }
+  #signup button:hover { opacity: 0.9; }
+  #signup .row-success p {
+    color: var(--muted);
+    font-family: system-ui, sans-serif;
+  }
   .form-note {
     font-size: 0.85rem;
     color: var(--muted);
@@ -113,17 +118,33 @@
 
   <section id="signup">
     <h2>Mailing list</h2>
-    <form class="signup" action="https://assets.mailerlite.com/jsonp/2577536/forms/195878089915369127/subscribe" method="post" target="_blank">
-      <input type="hidden" name="ml-submit" value="1">
-      <input type="hidden" name="anticsrf" value="true">
-      <input type="email" name="fields[email]" placeholder="you@example.com" autocomplete="email" required>
-      <button type="submit">Notify me</button>
-    </form>
-    <p class="form-note">
-      No spam, no schedule — just word the moment a new volume is out.
-      Double opt-in; unsubscribe anytime. See the <a href="privacy.html">privacy policy</a>.
-    </p>
+    <div id="mlb2-44863438" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-44863438">
+      <div class="row-form">
+        <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2577536/forms/195878089915369127/subscribe" data-code="" method="post" target="_blank">
+          <input type="hidden" name="ml-submit" value="1">
+          <input aria-label="email" aria-required="true" type="email" name="fields[email]" placeholder="you@example.com" autocomplete="email" required>
+          <button type="submit">Notify me</button>
+          <input type="hidden" name="anticsrf" value="true">
+        </form>
+        <p class="form-note">
+          No spam, no schedule — just word the moment a new volume is out.
+          Double opt-in; unsubscribe anytime. See the <a href="privacy.html">privacy policy</a>.
+        </p>
+      </div>
+      <div class="row-success" style="display: none">
+        <p>Thanks — check your inbox to confirm.</p>
+      </div>
+    </div>
   </section>
+
+  <script>
+    function ml_webform_success_44863438() {
+      var $ = ml_jQuery || jQuery;
+      $('.ml-subscribe-form-44863438 .row-success').show();
+      $('.ml-subscribe-form-44863438 .row-form').hide();
+    }
+  </script>
+  <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
 
   <footer>
     <p>

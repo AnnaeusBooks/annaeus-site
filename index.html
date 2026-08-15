@@ -113,13 +113,10 @@
 
   <section id="signup">
     <h2>Mailing list</h2>
-    <!--
-      MailerLite embedded form goes here. In MailerLite: Forms → Embedded forms →
-      create a simple form → copy the HTML snippet it gives you and paste it in place
-      of the placeholder form below. Their snippet already includes double opt-in.
-    -->
-    <form class="signup" action="#" method="post">
-      <input type="email" name="email" placeholder="you@example.com" required>
+    <form class="signup" action="https://assets.mailerlite.com/jsonp/2577536/forms/195878089915369127/subscribe" method="post" target="_blank">
+      <input type="hidden" name="ml-submit" value="1">
+      <input type="hidden" name="anticsrf" value="true">
+      <input type="email" name="fields[email]" placeholder="you@example.com" autocomplete="email" required>
       <button type="submit">Notify me</button>
     </form>
     <p class="form-note">
